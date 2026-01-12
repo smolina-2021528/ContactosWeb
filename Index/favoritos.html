@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Favoritos | Master Contact</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Css/estiloFavoritos.css">
+</head>
+<body>
+
+<div class="app-container">
+
+    <aside class="sidebar">
+        <div class="logo">Master Contact</div>
+        <nav class="menu">
+            <a href="principal.html">Inicio</a>
+            <a href="favoritos.html" class="active">Favoritos</a>
+            <a href="contactos.html">Gestionar Contactos</a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <h1 class="page-title">Contactos Favoritos</h1>
+        <div id="favoritosContainer"></div>
+    </main>
+
+</div>
+
+<script>
+const cont = document.getElementById("favoritosContainer");
+const favs = JSON.parse(localStorage.getItem("favoritos")) || [];
+
+favs.forEach(f => {
+    cont.innerHTML += `
+        <div class="contact-card">
+            <h2>${f.nombre}</h2>
+            <p>${f.numero}</p>
+            <p>${f.ocupacion}</p>
+            <p>${f.correo}</p>
+        </div>
+    `;
+});
+</script>
+
+</body>
+</html>
