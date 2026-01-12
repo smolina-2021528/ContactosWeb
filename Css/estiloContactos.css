@@ -1,0 +1,107 @@
+body {
+    margin: 0;
+    font-family: 'Bebas Neue', Impact, sans-serif;
+    background: url('../Image/fondoLogin.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+}
+
+.app-container {
+    display: flex;
+    height: 100vh;
+    backdrop-filter: blur(4px);
+}
+
+.sidebar {
+    width: 240px;
+    background: rgba(15, 20, 35, 0.9);
+    padding: 30px 20px;
+}
+
+.logo {
+    text-align: center;
+    font-size: 24px;
+    color: #4fc3ff;
+    margin-bottom: 40px;
+}
+
+.menu a {
+    display: block;
+    text-decoration: none;
+    color: #cfd8ff;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+}
+
+.menu a.active,
+.menu a:hover {
+    background: linear-gradient(135deg, #4fc3ff, #8a5cff);
+}
+
+.main-content {
+    flex: 1;
+    padding: 50px;
+    overflow-y: auto;
+}
+
+.page-title {
+    text-align: center;
+    color: #4fc3ff;
+    margin-bottom: 40px;
+}
+
+.cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.contact-card {
+    background: #ffffff;
+    color: #222;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.25);
+}
+
+.contact-card h2 {
+    margin-bottom: 8px;
+}
+
+.contact-card p {
+    font-size: 14px;
+    margin: 4px 0;
+}
+
+.card-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.card-actions button {
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-details { background: #4fc3ff; }
+.btn-call { background: #8a5cff; color: #fff; }
+.btn-manage { background: #333; color: #fff; }
+
+.favorite {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.details {
+    display: none;
+    margin-top: 15px;
+    background: #f1f3ff;
+    padding: 15px;
+    border-radius: 8px;
+}
