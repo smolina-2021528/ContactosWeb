@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Bebas Neue', Impact, sans-serif;
+    background: url('../Image/fondoLogin.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #ffffff;
+}
+
+.app-container {
+    display: flex;
+    height: 100vh;
+    backdrop-filter: blur(4px);
+}
+
+.sidebar {
+    width: 240px;
+    background: rgba(15, 20, 35, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px 20px;
+    box-shadow: 4px 0 20px rgba(0, 180, 255, 0.25);
+}
+
+.logo {
+    font-size: 24px;
+    color: #4fc3ff;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #cfd8ff;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.menu a:hover,
+.menu a.active {
+    background: linear-gradient(135deg, #4fc3ff, #8a5cff);
+    color: #ffffff;
+}
+
+.profile {
+    text-align: center;
+}
+
+.profile img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid #4fc3ff;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.profile img:hover {
+    transform: scale(1.1);
+}
+
+.main-content {
+    flex: 1;
+    padding: 50px;
+    overflow-y: auto;
+}
+
+.hero {
+    max-width: 800px;
+    margin: 0 auto 60px auto; 
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 36px;
+    color: #4fc3ff;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #dbe2ff;
+}
+
+.info-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.info-card {
+    background: rgba(30, 39, 70, 0.85);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 25px rgba(0, 180, 255, 0.15);
+    transition: transform 0.3s;
+}
+
+.info-card:hover {
+    transform: translateY(-6px);
+}
+
+.info-card h2 {
+    color: #8a5cff;
+    margin-bottom: 12px;
+    font-size: 20px;
+}
+
+.info-card p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #cfd8ff;
+}
