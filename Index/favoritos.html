@@ -27,20 +27,48 @@
 </div>
 
 <script>
-const cont = document.getElementById("favoritosContainer");
-const favs = JSON.parse(localStorage.getItem("favoritos")) || [];
+const container = document.getElementById("favoritosContainer");
+let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
 
-favs.forEach(f => {
-    cont.innerHTML += `
-        <div class="contact-card">
+function renderFavoritos() {
+    container.innerHTML = "";
+
+    if (favoritos.length === 0) {
+        container.innerHTML = "<p style='text-align:center'>No hay contactos favoritos</p>";
+        return;
+    }
+
+    favoritos.forEach(f => {
+        const card = document.createElement("div");
+        card.className = "contact-card";
+
+        card.innerHTML = `
             <h2>${f.nombre}</h2>
-            <p>${f.numero}</p>
-            <p>${f.ocupacion}</p>
-            <p>${f.correo}</p>
-        </div>
-    `;
-});
+            <p><strong>Tel:</strong> ${f.numero}</p>
+            <p><strong>Ocupación:</strong> ${f.ocupacion}</p>
+            <p><strong>Email:</strong> ${f.correo}</p>
+
+            <div class="card-actions">
+                <button class="btn-call">Llamar ahora</button>
+                <button class="btn-manage">Gestionar</button>
+                <span class="favorite active"
+                      onclick="removeFavorite(${f.id})">❤</span>
+            </div>
+        `;
+
+        container.appendChild(card);
+    });
+}
+
+function removeFavorite(id) {
+    favoritos = favoritos.filter(f => f.id !== id);
+    localStorage.setItem("favoritos", JSON.stringify(favoritos));
+    renderFavoritos();
+}
+
+renderFavoritos();
 </script>
+
 
 </body>
 </html>

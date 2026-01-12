@@ -1,4 +1,5 @@
-@import url('estiloContactos.css');
+
+@import url(estiloContactos.css);
 
 #favoritosContainer {
     display: flex;
@@ -6,4 +7,19 @@
     gap: 20px;
     max-width: 600px;
     margin: 0 auto;
+}
+
+.favorite {
+    cursor: pointer;
+    font-size: 22px;
+    transition: transform 0.2s ease, color 0.2s ease;
+    color: #999;
+}
+
+.favorite.active {
+    color: red;
+}
+
+.favorite:hover {
+    transform: scale(1.2);
 }

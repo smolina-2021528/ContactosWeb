@@ -105,3 +105,18 @@ body {
     padding: 15px;
     border-radius: 8px;
 }
+
+.favorite {
+    cursor: pointer;
+    font-size: 22px;
+    transition: transform 0.2s ease, color 0.2s ease;
+    color: #999;
+}
+
+.favorite.active {
+    color: red;
+}
+
+.favorite:hover {
+    transform: scale(1.2);
+}

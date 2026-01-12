@@ -38,45 +38,59 @@ const contactos = [
 ];
 
 const container = document.getElementById("contactosContainer");
+let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
 
-contactos.forEach(c => {
-    const card = document.createElement("div");
-    card.className = "contact-card";
+/* Render tarjetas */
+function renderContactos() {
+    container.innerHTML = "";
 
-    card.innerHTML = `
-        <h2>${c.nombre}</h2>
-        <p><strong>Tel:</strong> ${c.numero}</p>
-        <p><strong>Ocupación:</strong> ${c.ocupacion}</p>
-        <p><strong>Email:</strong> ${c.correo}</p>
+    contactos.forEach(c => {
+        const isFav = favoritos.some(f => f.id === c.id);
 
-        <div class="card-actions">
-            <button class="btn-details" onclick="toggleDetails(${c.id})">Ver detalles</button>
-            <button class="btn-call">Llamar ahora</button>
-            <button class="btn-manage">Gestionar</button>
-            <span class="favorite" onclick="addFavorite(${c.id})">❤</span>
-        </div>
+        const card = document.createElement("div");
+        card.className = "contact-card";
 
-        <div class="details" id="details-${c.id}">
-            <p><strong>Información ampliada del contacto</strong></p>
-            <p>Historial, notas y más datos aquí.</p>
-        </div>
-    `;
+        card.innerHTML = `
+            <h2>${c.nombre}</h2>
+            <p><strong>Tel:</strong> ${c.numero}</p>
+            <p><strong>Ocupación:</strong> ${c.ocupacion}</p>
+            <p><strong>Email:</strong> ${c.correo}</p>
 
-    container.appendChild(card);
-});
+            <div class="card-actions">
+                <button class="btn-details" onclick="toggleDetails(${c.id})">Ver detalles</button>
+                <button class="btn-call">Llamar ahora</button>
+                <button class="btn-manage">Gestionar</button>
+                <span class="favorite ${isFav ? 'active' : ''}"
+                      onclick="toggleFavorite(${c.id})">❤</span>
+            </div>
+
+            <div class="details" id="details-${c.id}">
+                <p><strong>Información ampliada</strong></p>
+                <p>Notas, historial y datos adicionales.</p>
+            </div>
+        `;
+
+        container.appendChild(card);
+    });
+}
 
 function toggleDetails(id) {
     const details = document.getElementById(`details-${id}`);
     details.style.display = details.style.display === "block" ? "none" : "block";
 }
 
-function addFavorite(id) {
-    let favs = JSON.parse(localStorage.getItem("favoritos")) || [];
-    const contacto = contactos.find(c => c.id === id);
+function toggleFavorite(id) {
+    const index = favoritos.findIndex(f => f.id === id);
 
-    if (!favs.some(f => f.id === id)) {
-        favs.push(contacto);
-        localStorage.setItem("favoritos", JSON.stringify(favs));
-        alert("Agregado a favoritos");
+    if (index === -1) {
+        const contacto = contactos.find(c => c.id === id);
+        favoritos.push(contacto);
+    } else {
+        favoritos.splice(index, 1);
     }
+
+    localStorage.setItem("favoritos", JSON.stringify(favoritos));
+    renderContactos();
 }
+
+renderContactos();
