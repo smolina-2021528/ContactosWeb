@@ -12,7 +12,7 @@
       <div class="login-box">
         <h1 class="page-title">Master Contact</h1>
 
-        <form class="login-form" action="../Index/principal.html" method="GET">
+        <form class="login-form" id="loginForm" action="../Index/principal.html" method="GET">
           <label for="usuario">Usuario</label>
           <input
             type="text"
@@ -40,5 +40,20 @@
         </form>
       </div>
     </div>
+
+    <script>
+      const form = document.getElementById('loginForm');
+      form.addEventListener('submit', (e) => {
+        const usuario = document.getElementById('usuario').value;
+        const fechaLogin = new Date().toLocaleString('es-ES', { 
+          day: '2-digit', 
+          month: '2-digit', 
+          year: 'numeric', 
+          hour: '2-digit', 
+          minute: '2-digit' 
+        });
+        localStorage.setItem('session', JSON.stringify({ usuario, fechaLogin }));
+      });
+    </script>
   </body>
 </html>
