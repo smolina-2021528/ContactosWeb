@@ -50,7 +50,7 @@ function renderFavoritos() {
 
             <div class="card-actions">
                 <button class="btn-call">Llamar ahora</button>
-                <button class="btn-manage">Gestionar</button>
+                <button class="btn-manage" onclick="gestionarContacto(${f.id})">Gestionar</button>
                 <span class="favorite active"
                       onclick="removeFavorite(${f.id})">❤</span>
             </div>
@@ -64,6 +64,11 @@ function removeFavorite(id) {
     favoritos = favoritos.filter(f => f.id !== id);
     localStorage.setItem("favoritos", JSON.stringify(favoritos));
     renderFavoritos();
+}
+
+function gestionarContacto(id) {
+    // Redirigir a la página de gestión, pasando el ID en la URL como parámetro de consulta
+    window.location.href = '../Index/gestionarContactos.html?id=' + id;
 }
 
 renderFavoritos();

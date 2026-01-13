@@ -1,7 +1,7 @@
 // estos son los contactos que tengo quemados
 const contactosIniciales = [
     {
-        id: 1,
+        id: 1768268472728,
         nombre: "Maria Monzon",
         numero: "4478-2595",
         ocupacion: "Secretaria",
@@ -9,7 +9,7 @@ const contactosIniciales = [
         fecha: "01-01-2024"  // Fecha por defecto para contactos iniciales
     },
     {
-        id: 2,
+        id: 1768268472729,
         nombre: "Luis Palencia",
         numero: "4412-7845",
         ocupacion: "Desarrollador",
@@ -17,7 +17,7 @@ const contactosIniciales = [
         fecha: "01-01-2024"
     },
     {
-        id: 3,
+        id: 1768268472730,
         nombre: "Josue Orellana",
         numero: "3754-1241",
         ocupacion: "Director de Marketing",
@@ -25,7 +25,7 @@ const contactosIniciales = [
         fecha: "01-01-2024"
     }, 
     {
-        id: 4,
+        id: 1768268472731,
         nombre: "Sharon Wagner",
         numero: "5412-4455",
         ocupacion: "Gerente de Ventas",
@@ -33,7 +33,7 @@ const contactosIniciales = [
         fecha: "01-01-2024"
     }, 
     {
-        id: 5,
+        id: 1768268472732,
         nombre: "Carlos Mendoza",
         numero: "5121-4985",
         ocupacion: "Desarrollador",
@@ -47,13 +47,11 @@ let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
 
 const container = document.getElementById("contactosContainer");
 
-// Inicializar contactos si no existen en localStorage
 if (contactos.length === 0) {
     contactos = contactosIniciales;
     localStorage.setItem("contactos", JSON.stringify(contactos));
 }
 
-/* Render tarjetas */
 function renderContactos() {
     container.innerHTML = "";
 
