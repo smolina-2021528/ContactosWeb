@@ -84,3 +84,33 @@ button {
 .hidden {
     display: none;
 }
+
+#editFields {
+    margin-top: 20px; 
+}
+
+#editFields input {
+    display: block; 
+    width: 100%; 
+    margin-bottom: 15px; 
+    padding: 10px;
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    box-sizing: border-box; 
+}
+
+#editFields button {
+    display: block;
+    width: 100%; 
+    margin-bottom: 15px; 
+    padding: 10px;
+    background-color: #007bff; 
+    color: white; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#editFields button:hover {
+    background-color: #0056b3; 
+}

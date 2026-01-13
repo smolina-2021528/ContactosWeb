@@ -1,62 +1,65 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Gestionar Contactos | Master Contact</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Css/estiloGestionar.css">
 </head>
+
 <body>
 
-<div class="container">
+    <div class="container">
 
-    <nav class="top-nav">
-        <a href="../Index/principal.html">Inicio</a>
-        <a href="../Index/contactos.html">Contactos</a>
-    </nav>
+        <nav class="top-nav">
+            <a href="../Index/principal.html">Inicio</a>
+            <a href="../Index/contactos.html">Contactos</a>
+        </nav>
 
-    <h1>Gestión de Contactos</h1>
+        <h1>Gestión de Contactos</h1>
 
-    <div class="tabs">
-        <button class="active" onclick="showSection('nuevo')">Nuevo Contacto</button>
-        <button onclick="showSection('editar')">Editar Contacto</button>
-        <button onclick="showSection('eliminar')">Eliminar Contacto</button>
+        <div class="tabs">
+            <button class="active" onclick="showSection('nuevo')">Nuevo Contacto</button>
+            <button onclick="showSection('editar')">Editar Contacto</button>
+            <button onclick="showSection('eliminar')">Eliminar Contacto</button>
+        </div>
+
+        <section id="nuevo" class="section active">
+            <input placeholder="Nombre" id="nNombre">
+            <input placeholder="Teléfono" id="nNumero">
+            <input placeholder="Ocupación" id="nOcupacion">
+            <input placeholder="Correo" id="nCorreo">
+            <button onclick="crearContacto()">Agregar Contacto</button>
+        </section>
+
+        <section id="editar" class="section">
+            <input placeholder="ID del contacto" id="eId">
+            <button onclick="buscarContacto()">Buscar</button>
+
+            <div id="editFields" class="hidden">
+                <input id="eNombre" placeholder="Nombre">
+                <input id="eNumero" placeholder="Teléfono">
+                <input id="eOcupacion" placeholder="Ocupación">
+                <input id="eCorreo" placeholder="Correo">
+                <button onclick="actualizarContacto()">Actualizar</button>
+            </div>
+        </section>
+
+        <section id="eliminar" class="section">
+            <input placeholder="ID del contacto" id="dId">
+            <button onclick="confirmarEliminar()">Eliminar</button>
+
+            <div id="alerta" class="alert hidden">
+                <p>¿Seguro que deseas eliminar este contacto?</p>
+                <button onclick="eliminarContacto()">Sí, eliminar</button>
+                <button onclick="cancelarEliminar()">Cancelar</button>
+            </div>
+        </section>
+
     </div>
 
-    <section id="nuevo" class="section active">
-        <input placeholder="Nombre" id="nNombre">
-        <input placeholder="Teléfono" id="nNumero">
-        <input placeholder="Ocupación" id="nOcupacion">
-        <input placeholder="Correo" id="nCorreo">
-        <button onclick="crearContacto()">Agregar Contacto</button>
-    </section>
-
-    <section id="editar" class="section">
-        <input placeholder="ID del contacto" id="eId">
-        <button onclick="buscarContacto()">Buscar</button>
-
-        <div id="editFields" class="hidden">
-            <input id="eNombre">
-            <input id="eNumero">
-            <input id="eOcupacion">
-            <input id="eCorreo">
-            <button onclick="actualizarContacto()">Actualizar</button>
-        </div>
-    </section>
-
-    <section id="eliminar" class="section">
-        <input placeholder="ID del contacto" id="dId">
-        <button onclick="confirmarEliminar()">Eliminar</button>
-
-        <div id="alerta" class="alert hidden">
-            <p>¿Seguro que deseas eliminar este contacto?</p>
-            <button onclick="eliminarContacto()">Sí, eliminar</button>
-            <button onclick="cancelarEliminar()">Cancelar</button>
-        </div>
-    </section>
-
-</div>
-
-<script src="../Script/gestionarScript.js"></script>
+    <script src="../Script/gestionarScript.js"></script>
 </body>
+
 </html>
