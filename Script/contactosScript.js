@@ -1,5 +1,5 @@
 // estos son los contactos que tengo quemados
-const contactos = [
+const contactosIniciales = [
     {
         id: 1,
         nombre: "Maria Monzon",
@@ -37,8 +37,16 @@ const contactos = [
     }
 ];
 
-const container = document.getElementById("contactosContainer");
+let contactos = JSON.parse(localStorage.getItem("contactos")) || [];
 let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+
+const container = document.getElementById("contactosContainer");
+
+// Inicializar contactos si no existen en localStorage
+if (contactos.length === 0) {
+    contactos = contactosIniciales;
+    localStorage.setItem("contactos", JSON.stringify(contactos));
+}
 
 /* Render tarjetas */
 function renderContactos() {
@@ -59,7 +67,7 @@ function renderContactos() {
             <div class="card-actions">
                 <button class="btn-details" onclick="toggleDetails(${c.id})">Ver detalles</button>
                 <button class="btn-call">Llamar ahora</button>
-                <button class="btn-manage">Gestionar</button>
+                <button class="btn-manage" onclick="gestionarContacto(${c.id})">Gestionar</button>
                 <span class="favorite ${isFav ? 'active' : ''}"
                       onclick="toggleFavorite(${c.id})">❤</span>
             </div>
@@ -91,6 +99,11 @@ function toggleFavorite(id) {
 
     localStorage.setItem("favoritos", JSON.stringify(favoritos));
     renderContactos();
+}
+
+function gestionarContacto(id) {
+    // Redirigir a la página de gestión, pasando el ID en la URL como parámetro de consulta
+    window.location.href = '../Index/gestionarContactos.html?id=' + id;
 }
 
 renderContactos();
