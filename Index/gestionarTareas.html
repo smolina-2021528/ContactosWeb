@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestionar Tareas | Master Contact</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Css/estiloTareas.css">
+</head>
+<body>
+
+<div class="app-container">
+
+    <aside class="sidebar">
+        <div class="logo">Master Contact</div>
+        <nav class="menu">
+            <a href="../Index/principal.html">Inicio</a>
+            <a href="../Index/favoritos.html">Favoritos</a>
+            <a href="../Index/contactos.html">Contactos</a>
+            <a href="../Index/gestionarContactos.html">Gestionar Contactos</a>
+            <a href="../Index/gestionarTareas.html" class="active">Gestionar Tareas</a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+
+        <h1 class="page-title">Gestión de Tareas</h1>
+
+        <div class="tabs">
+            <button class="active" onclick="showSection('nuevo')">Nueva Tarea</button>
+            <button onclick="showSection('editar')">Editar Tarea</button>
+            <button onclick="showSection('eliminar')">Eliminar Tarea</button>
+        </div>
+
+        <section id="nuevo" class="section active">
+            <input placeholder="Nombre de la Tarea" id="nTarea">
+            <input type="date" id="nFechaEntrega">
+            <input placeholder="Departamento" id="nDepartamento">
+            <button onclick="crearTarea()">Agregar Tarea</button>
+        </section>
+
+        <section id="editar" class="section">
+            <input placeholder="ID de la tarea" id="eId">
+            <button onclick="buscarTarea()">Buscar</button>
+
+            <div id="editFields" class="hidden">
+                <input id="eTarea" placeholder="Nombre de la Tarea">
+                <input type="date" id="eFechaEntrega">
+                <input id="eDepartamento" placeholder="Departamento">
+                <button onclick="actualizarTarea()">Actualizar</button>
+            </div>
+        </section>
+
+        <section id="eliminar" class="section">
+            <input placeholder="ID de la tarea" id="dId">
+            <button onclick="confirmarEliminar()">Eliminar</button>
+
+            <div id="alerta" class="alert hidden">
+                <p>¿Seguro que quieres eliminar esta tarea?</p>
+                <button onclick="eliminarTarea()">Sí, eliminar</button>
+                <button onclick="cancelarEliminar()">Cancelar</button>
+            </div>
+        </section>
+
+        <div class="table-container">
+            <table id="tareasTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th onclick="sortTable('tarea')">Tarea</th>
+                        <th onclick="sortTable('relevancia')">Relevancia <span id="sortRelevancia"></span></th>
+                        <th>Fecha de Entrega</th>
+                        <th onclick="sortTable('departamento')">Departamento</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tareasBody">
+                    <!-- aqui se llenan las tareas segun vamos usando el crud -->
+                </tbody>
+            </table>
+        </div>
+
+    </main>
+
+</div>
+
+<script src="../Script/tareasScript.js"></script>
+</body>
+</html>
