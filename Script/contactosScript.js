@@ -5,35 +5,40 @@ const contactosIniciales = [
         nombre: "Maria Monzon",
         numero: "4478-2595",
         ocupacion: "Secretaria",
-        correo: "mmonzon@mastercontact.org.gt"
+        correo: "mmonzon@mastercontact.org.gt",
+        fecha: "01-01-2024"  // Fecha por defecto para contactos iniciales
     },
     {
         id: 2,
         nombre: "Luis Palencia",
         numero: "4412-7845",
         ocupacion: "Desarrollador",
-        correo: "lpalencia@mastercontact.org.gt"
+        correo: "lpalencia@mastercontact.org.gt",
+        fecha: "01-01-2024"
     },
     {
         id: 3,
         nombre: "Josue Orellana",
         numero: "3754-1241",
         ocupacion: "Director de Marketing",
-        correo: "jorellana@mastercontact.org.gt"
+        correo: "jorellana@mastercontact.org.gt",
+        fecha: "01-01-2024"
     }, 
     {
         id: 4,
         nombre: "Sharon Wagner",
         numero: "5412-4455",
         ocupacion: "Gerente de Ventas",
-        correo: "swagner@mastercontact.org.gt"
+        correo: "swagner@mastercontact.org.gt",
+        fecha: "01-01-2024"
     }, 
     {
         id: 5,
         nombre: "Carlos Mendoza",
         numero: "5121-4985",
         ocupacion: "Desarrollador",
-        correo: "cmendoza@mastercontact.org.gt"
+        correo: "cmendoza@mastercontact.org.gt",
+        fecha: "01-01-2024"
     }
 ];
 
@@ -72,7 +77,9 @@ function renderContactos() {
                       onclick="toggleFavorite(${c.id})">❤</span>
             </div>
 
-            <div class="details" id="details-${c.id}">
+            <div class="details" id="details-${c.id}" style="display: none;">
+                <p><strong>ID:</strong> ${c.id}</p>
+                <p><strong>Fecha de guardado:</strong> ${c.fecha || 'No disponible'}</p>
                 <p><strong>Información ampliada</strong></p>
                 <p>Notas, historial y datos adicionales.</p>
             </div>
