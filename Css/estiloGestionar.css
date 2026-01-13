@@ -1,0 +1,86 @@
+body {
+    margin: 0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: url('../Image/fondoLogin.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+}
+
+.container {
+    max-width: 600px;
+    margin: 60px auto;
+    background: rgba(15,20,35,0.9);
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.top-nav a {
+    color: #4fc3ff;
+    text-decoration: none;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.tabs button {
+    flex: 1;
+    margin: 0 5px;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.tabs .active {
+    background: linear-gradient(135deg, #4fc3ff, #8a5cff);
+    color: white;
+}
+
+.section {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.section.active {
+    display: flex;
+}
+
+input {
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+}
+
+button {
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+.alert {
+    background: #ffdddd;
+    color: #222;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 15px;
+}
+
+.hidden {
+    display: none;
+}
