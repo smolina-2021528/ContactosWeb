@@ -47,6 +47,7 @@
                 <input type="date" id="eFechaEntrega">
                 <input id="eDepartamento" placeholder="Departamento">
                 <button onclick="actualizarTarea()">Actualizar</button>
+                <button onclick="limpiarEditar()">Limpiar</button>
             </div>
         </section>
 
@@ -55,26 +56,38 @@
             <button onclick="confirmarEliminar()">Eliminar</button>
 
             <div id="alerta" class="alert hidden">
-                <p>¿Seguro que quieres eliminar esta tarea?</p>
+                <p>¿Seguro que deseas eliminar esta tarea?</p>
                 <button onclick="eliminarTarea()">Sí, eliminar</button>
                 <button onclick="cancelarEliminar()">Cancelar</button>
             </div>
         </section>
+
+        <div class="filter-container">
+            <select id="sortColumn">
+                <option value="tarea">Tarea</option>
+                <option value="relevancia">Relevancia</option>
+                <option value="departamento">Departamento</option>
+            </select>
+            <select id="sortDirection">
+                <option value="asc">Ascendente</option>
+                <option value="desc">Descendente</option>
+            </select>
+            <button onclick="aplicarOrden()">Aplicar Orden</button>
+        </div>
 
         <div class="table-container">
             <table id="tareasTable">
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th onclick="sortTable('tarea')">Tarea</th>
-                        <th onclick="sortTable('relevancia')">Relevancia <span id="sortRelevancia"></span></th>
+                        <th>Tarea</th>
+                        <th>Relevancia</th>
                         <th>Fecha de Entrega</th>
-                        <th onclick="sortTable('departamento')">Departamento</th>
+                        <th>Departamento</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody id="tareasBody">
-                    <!-- aqui se llenan las tareas segun vamos usando el crud -->
                 </tbody>
             </table>
         </div>
